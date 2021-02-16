@@ -1,17 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import 'fontsource-roboto';
+import Tela1 from './components/Tela1';
+import Tela2 from './components/Tela2';
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
+// ========================================
+
+export default function App() {
+  return (
+    <Router>
+      <div>
+        <Switch>
+          <Route path="/tela1">
+            <Tela1></Tela1>
+          </Route>
+          <Route path="/tela2">
+            <Tela2></Tela2>
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+  );
+}
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <App />,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
