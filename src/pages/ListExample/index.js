@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { Button } from '@material-ui/core'
 import { useHistory } from 'react-router-dom'
 
+// Exemplo de import do graphql, talvez tenha que alterar alguma coisa
+// import { exemploFuncao } from '../../generated/graphql'
+
 import './styles.sass'
 
 // Sigam esse padrão de import
@@ -16,20 +19,17 @@ const ListExample = () => {
 	// Forma de criar uma variavel
 	const [list, setList] = useState([])
 
+	// Exemplo de uso do graphql
+	// const { data, loading, error, refetch } = exemploFuncao({
+  //   onCompleted(data) {
+	// 		console.log(data)
+	// 		// A partir dos dados recuperados, vamos settar a lista
+  //     setList(data)
+  //   }
+  // })
+
 	useEffect(() => {
 		const newList = [
-			{ text: 'Olá Tudo bem?' },
-			{ text: 'Tudo bem meu! Como está sua vida nessa grande quarta feira?' },
-			{ text: 'Olá Tudo bem?' },
-			{ text: 'Tudo bem meu! Como está sua vida nessa grande quarta feira?' },
-			{ text: 'Olá Tudo bem?' },
-			{ text: 'Tudo bem meu! Como está sua vida nessa grande quarta feira?' },
-			{ text: 'Olá Tudo bem?' },
-			{ text: 'Tudo bem meu! Como está sua vida nessa grande quarta feira?' },
-			{ text: 'Olá Tudo bem?' },
-			{ text: 'Tudo bem meu! Como está sua vida nessa grande quarta feira?' },
-			{ text: 'Olá Tudo bem?' },
-			{ text: 'Tudo bem meu! Como está sua vida nessa grande quarta feira?' },
 			{ text: 'Olá Tudo bem?' },
 			{ text: 'Tudo bem meu! Como está sua vida nessa grande quarta feira?' },
 		]
