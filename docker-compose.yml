@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  front:
+    image: node:lts
+    working_dir: /app
+    container_name: react-template
+    command: bash -c 'yarn && yarn run start'
+    volumes:
+      - ./:/app
+      - ./node_modules:/code/node_modules
+    ports:
+      - 88:3000
