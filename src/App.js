@@ -6,6 +6,8 @@ import Routes from './routes'
 
 const App = () => {
   return (
+    /* TODO */
+    /* Implementar o store provider ao redor do routes */
     <Routes />
   )
 }

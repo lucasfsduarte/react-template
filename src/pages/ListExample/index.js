@@ -20,6 +20,18 @@ const ListExample = () => {
 		const newList = [
 			{ text: 'Olá Tudo bem?' },
 			{ text: 'Tudo bem meu! Como está sua vida nessa grande quarta feira?' },
+			{ text: 'Olá Tudo bem?' },
+			{ text: 'Tudo bem meu! Como está sua vida nessa grande quarta feira?' },
+			{ text: 'Olá Tudo bem?' },
+			{ text: 'Tudo bem meu! Como está sua vida nessa grande quarta feira?' },
+			{ text: 'Olá Tudo bem?' },
+			{ text: 'Tudo bem meu! Como está sua vida nessa grande quarta feira?' },
+			{ text: 'Olá Tudo bem?' },
+			{ text: 'Tudo bem meu! Como está sua vida nessa grande quarta feira?' },
+			{ text: 'Olá Tudo bem?' },
+			{ text: 'Tudo bem meu! Como está sua vida nessa grande quarta feira?' },
+			{ text: 'Olá Tudo bem?' },
+			{ text: 'Tudo bem meu! Como está sua vida nessa grande quarta feira?' },
 		]
 
 		setList(newList)
@@ -32,9 +44,11 @@ const ListExample = () => {
 			<div className='list-content'>
 				<h1>Exibição de Textos em Tempo Real</h1>
 				
-				{list.map((item, index) => (
-					<Card data={item} key={index}/>
-				))}
+				<div className='list'>
+					{list.map((item, index) => (
+						<Card data={item} key={index}/>
+					))}
+				</div>
 
 				<Button
 					variant='contained'
