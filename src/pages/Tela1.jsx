@@ -17,7 +17,7 @@ class Tela1 extends React.Component {
         return (
             <div class="tela">
                 <Grid item xs={12} className="componentes-tela">
-                    <p className="titulo-tela"> Tela 1 </p>
+                    <p class="titulo-tela"> Tela 1 </p>
                     <TextField id="outlined-basic" label="Texto" variant="outlined" className="margin-componentes" onChange={(e) => this.setState({'texto': e.target.value})}/>
                     <Button variant="contained" color="primary" className="botao margin-componentes" onClick={() => enviar(this.state.texto)}>
                         Enviar
@@ -29,11 +29,23 @@ class Tela1 extends React.Component {
 }
 
 function enviar(texto) {
+    
     alert(texto);
+    
     // const apiUrl = 'https://api.github.com/users/hacktivist123/repos';
-    // fetch(apiUrl)
-    //     .then((response) => response.json())
-    //     .then((data) => console.log('This is your data', data));
+    // fetch(apiUrl, {
+    //     mode: 'cors',
+    //     method: 'POST',
+    //     body: JSON.stringify(
+    //       {
+    //         'texto': texto
+    //       }
+    //     )
+    // })
+    // .then((response) => response.json())
+    // .then((data) => console.log('This is your data', data));
+
+    window.location = "/tela2"
 }
 
 export default Tela1;
