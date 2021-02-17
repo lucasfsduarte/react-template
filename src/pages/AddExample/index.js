@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { Button, TextField } from '@material-ui/core'
 import { useHistory } from 'react-router-dom'
+import { Button, TextField } from '@material-ui/core'
 import { useMutation, gql } from '@apollo/client'
 
 import './styles.sass'
 
-const TASK_CREATED = gql`
+const CREATED_TASK = gql`
 	mutation createTask($title: String!) {
 		createTask(title: $title) {
 			id
@@ -17,20 +17,19 @@ const TASK_CREATED = gql`
 // Forma de declarar a página
 const AddExample = () => {
 
-	// Sempre use o history para mudar de pagina
 	const history = useHistory()
 
-	const [createTask] = useMutation(TASK_CREATED)
+	const [createTask] = useMutation(CREATED_TASK)
 
 	// Forma de criar uma variavel
-	const [nomeVariavel, setNomeVariavel] = useState('')
+	const [message, setMessage] = useState('')
 
 	// Exemplo de função para alterar uma variável utilizando um TextField
 	const handleChange = (e) => {
 		const { value } = e.target
 
 		// Forma de editar uma variavel
-		setNomeVariavel(value)
+		setMessage(value)
 	}
 
 	const handleSubmit = (e) => {
@@ -38,27 +37,38 @@ const AddExample = () => {
 		e.preventDefault()
 
 		// Utiliza a mutation para criar a nova task
-		createTask({ variables: { title: nomeVariavel } }).then(res => console.log(res.data))
-	
-		history.push('/list') // Vai para a página nova
+		createTask({ variables: { title: message } }).then(res => console.log(res.data))
 	}
 
 	return (
 		<div className='add-example-container'>
 			<form onSubmit={handleSubmit}>
-				<h1>Exemplo para Adicionar Texto em Tempo Real</h1>
+				<h1>Envio de Mensagens</h1>
 				<TextField
+					fullWidth
 					variant='outlined'
-					label='Texto'
+					label='Mensagem'
 					onChange={handleChange}
 				/>
-				<Button
-					variant='contained'
-					color='primary'
-					type='submit'
-				>
-					Enviar
-				</Button>
+				<div className='actions'>
+					<Button
+						fullWidth
+						variant='contained'
+						color='primary'
+						type='submit'
+					>
+						Enviar
+					</Button>
+					<Button
+						fullWidth
+						variant='contained'
+						color='primary'
+						type='button'
+						onClick={() => history.push('/list')}
+					>
+						Ver mensagem
+					</Button>
+				</div>
 			</form>
 		</div>
 	)
